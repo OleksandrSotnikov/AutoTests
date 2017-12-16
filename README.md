@@ -1,2 +1,3 @@
 # AutoTests
-Fubo Automation Tests
+Fubo Automation Tests.
+1. Price check.
