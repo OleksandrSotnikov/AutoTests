@@ -1,1 +1,2 @@
 # AutoTests
+Fubo Automation Tests
