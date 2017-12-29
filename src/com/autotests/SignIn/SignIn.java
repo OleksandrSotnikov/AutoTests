@@ -11,8 +11,8 @@
    Click Spoof
    1. Navigate to https://qa.fubo.tv/welcome.
    2. Click on 'Sign In' button.
-   3. On the 'Sign In to fuboTV' modal window enter the email of the registered user in the ’Email’ field.
-   4. On the 'Sign In to fuboTV' modal window the password of the registered user in the ’Password’ field.
+   3. On the 'Sign In to fuboTV' modal window enter the correct email of the registered user in the ’Email’ field.
+   4. On the 'Sign In to fuboTV' modal window enter the correct password of the registered user in the ’Password’ field.
    5. Click 'Sign In With Email' button.
 
    Expected Result: A user will be signed in and redirected to the fuboTV Sports Home Page.
