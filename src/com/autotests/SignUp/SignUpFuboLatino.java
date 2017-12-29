@@ -12,6 +12,9 @@ public class SignUpFuboLatino {
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
 
+        // Wait.
+        Thread.sleep(5000);
+
         // Input value USA.
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[]{"USA"});
 
@@ -37,7 +40,7 @@ public class SignUpFuboLatino {
         Thread.sleep(5000);
 
         // Input email.
-        String prefix = "testsignup";
+        String prefix = "autosignup";
         String suffix = "@dummy.com";
 
         String testEmail = prefix + Math.round(Math.random() * 1000000) + suffix;
@@ -63,7 +66,7 @@ public class SignUpFuboLatino {
         // Wait.
         Thread.sleep(15000);
 
-        // Choose Package (Fubo Latino)
+        // Choose Package (fubo Latino)
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/div[2]/div[1]")).click();
 
         // Get Package title.

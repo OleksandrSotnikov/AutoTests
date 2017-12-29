@@ -16,7 +16,7 @@ public class SignIn {
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
 
         // Wait until webside with spoofing download.
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         // Input Value USA
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[] {"USA"});
