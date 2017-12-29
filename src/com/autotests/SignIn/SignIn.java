@@ -1,3 +1,24 @@
+/* Title: Positive Sign In.
+
+   Description: A registered user should be able to successfully login at fuboTV.
+
+   Precondition : The user must already be registered with an email address and password.
+
+   Test Steps:
+   Precondition (Use Spoofing feature if need).
+   Navigate to Spoofing Page.
+   Input Country Code and Current Postal Code.
+   Click Spoof
+   1. Navigate to https://qa.fubo.tv/welcome.
+   2. Click on 'Sign In' button.
+   3. On the 'Sign In to fuboTV' modal window enter the email of the registered user in the ’Email’ field.
+   4. On the 'Sign In to fuboTV' modal window the password of the registered user in the ’Password’ field.
+   5. Click 'Sign In With Email' button.
+
+   Expected Result: A user will be signed in and redirected to the fuboTV Sports Home Page.
+
+   Test Environment: Windows 10 / Google Chrome.
+*/
 package com.autotests.SignIn;
 
 import org.openqa.selenium.By;
@@ -33,8 +54,16 @@ public class SignIn {
         // Clcik 'Sign In' button.
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span")).click();
 
-        // Input 'Sign In' values (Email & Password).
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input")).sendKeys(new String[] {"123test123@dummy.com"});
+        // email value:
+        String testEmail = "test@dummy.com";
+
+        // Array for sending values
+        String[] myArray = {testEmail};
+
+        // Input Email.
+        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input")).sendKeys(myArray);
+
+        // Input Password.
         cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input")).sendKeys(new String[] {"test1234"});
 
         // Click on Sign In button.
@@ -55,31 +84,21 @@ public class SignIn {
         // Get information from 'My Profile' about user email.
         String useremail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
 
-        // Click 'Subscription' tab.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[1]/p[2]/span")).click();
-
-        // Wait
-        Thread.sleep(2000);
-
-        // Get information from 'My Subscription'
-        String userpackage = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[1]/div[2]/span")).getText();
-
-        // Get information about add-ons.
-        String useraddon = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div/div[2]/span/span")).getText();
 
         // Display user email.
         System.out.println("User email is: " + useremail);
 
-        // Display user package.
-        System.out.println("User package is: " + userpackage);
+        // Compare emails:
+        if (testEmail.equals(useremail)) {
+            // emails are the same
+            System.out.println("Emails are equals");
+            // Close page.
+            cd.close();
+        } else {
+            System.out.println("Emails are different");
+            // emails are different
 
-        // Close page.
-        cd.close();
 
-
-
-
-
-
+        }
     }
 }
