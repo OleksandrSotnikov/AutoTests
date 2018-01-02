@@ -26,12 +26,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Channels {
     public static void main(String[] args) throws InterruptedException {
 
-        //Input prices:
+        //Prices values:
         String fuboPremiercorrect = "$39.99/mo";
         String fuboLatinocorrect = "$17.99/mo";
         String fuboPortcorrect = "$19.99/mo";
 
-                // for Chrome.
+        // for Chrome.
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
