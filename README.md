@@ -1,6 +1,6 @@
 # AutoTests
 Fubo Automation Tests.
-1. Channels Check changed XPath.
+1. Channels compare.
 2. Sign In simple (positive).
 3. Sign In Negative.
 4. Sign Up (positive) and compare the email.
