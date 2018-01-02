@@ -76,7 +76,7 @@ public class SignInNegativeLog {
         if (errormessage.equals(correcterror)) {
             cd.close();
         } else {
-            System.out.println("Something Wrong");
+            System.out.println("The error message is incorrect.");
         }
     }
 }

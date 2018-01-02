@@ -65,7 +65,7 @@ public class SignInNegative {
         cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span")).click();
 
         // Wait.
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
         // Get Error message
         String errormessage = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[3]")).getText();
@@ -76,7 +76,7 @@ public class SignInNegative {
         if (errormessage.equals(correcterror)) {
             cd.close();
         } else {
-            System.out.println("Something Wrong");
+            System.out.println("The error message is incorrect.");
         }
     }
 }
