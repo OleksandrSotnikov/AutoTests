@@ -158,13 +158,13 @@ public class SignUpFuboLatino {
         if (chosenpackage.equals(userpackage)) {
             // packages are the same
             System.out.println("Packages are equals");
-            cd.close();
-        } else {
+            } else {
             System.out.println("Packages are different");
             // packages are different
 
 
         }
+        cd.close();
 
     }
 }

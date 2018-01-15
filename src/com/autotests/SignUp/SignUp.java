@@ -130,13 +130,13 @@ public class SignUp {
         if (testEmail.equals(useremail)) {
             // emails are the same
             System.out.println("Emails are equals");
-            cd.close();
-        } else {
+            } else {
             System.out.println("Emails are different");
             // emails are different
 
 
         }
+        cd.close();
     }
 
 }

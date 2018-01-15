@@ -94,12 +94,12 @@ public class SignIn {
             // emails are the same
             System.out.println("Emails are equals");
             // Close page.
-            cd.close();
         } else {
             System.out.println("Emails are different");
             // emails are different
 
 
         }
+        cd.close();
     }
 }
