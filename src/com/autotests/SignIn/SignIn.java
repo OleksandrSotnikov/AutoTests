@@ -22,6 +22,7 @@
 package com.autotests.SignIn;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -31,7 +32,7 @@ public class SignIn {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
-        ChromeDriver cd = new ChromeDriver();
+        WebDriver cd = new ChromeDriver();
 
         // Open Spoofing
         cd.get("https://qa.fubo.tv/sandbox/geolocation");

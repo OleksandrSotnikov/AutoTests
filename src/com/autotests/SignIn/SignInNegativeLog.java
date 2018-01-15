@@ -23,6 +23,7 @@
 package com.autotests.SignIn;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -32,7 +33,7 @@ public class SignInNegativeLog {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
-        ChromeDriver cd = new ChromeDriver();
+        WebDriver cd = new ChromeDriver();
 
         // Open Spoofing
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
@@ -52,20 +53,20 @@ public class SignInNegativeLog {
         // Wait until QA download.
         Thread.sleep(5000);
 
-        // Clcik 'Sign In' button.
+        // Cliсk 'Sign In' button.
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span")).click();
 
         // Input Email.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input")).sendKeys(new String[] {"incorrectemai@dummy.com"});
+        cd.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[1]/input[1]")).sendKeys(new String[] {"incorrectemai@dummy.com"});
 
         // Input Password.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input")).sendKeys(new String[]{"test1234"});
+        cd.findElement(By.cssSelector("body > div.ReactModalPortal > div > div > div > div.modal-content.modal-small > div.modal-body > div > div > form > div > div:nth-child(2) > div > input[type=\"password\"]")).sendKeys(new String[]{"test1234"});
 
         // Click on Sign In button.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span")).click();
+        cd.findElement(By.cssSelector("body > div.ReactModalPortal > div > div > div > div.modal-content.modal-small > div.modal-body > div > div > form > div > button > div > span")).click();
 
         // Wait.
-        Thread.sleep(5000);
+        Thread.sleep(10000);
 
         // Get Error message
         String errormessage = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[3]")).getText();

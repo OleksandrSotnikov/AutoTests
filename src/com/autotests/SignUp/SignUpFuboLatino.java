@@ -1,13 +1,15 @@
 package com.autotests.SignUp;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignUpFuboLatino {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
         // Open browser.
-        ChromeDriver cd = new ChromeDriver();
+        WebDriver cd = new ChromeDriver();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");

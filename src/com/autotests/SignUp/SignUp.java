@@ -1,13 +1,15 @@
 package com.autotests.SignUp;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignUp {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
         // Open browser.
-        ChromeDriver cd = new ChromeDriver();
+        WebDriver cd = new ChromeDriver();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
@@ -43,7 +45,7 @@ public class SignUp {
         cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[1]/div/input")).sendKeys(new String[]{testEmail});
 
         // Click 'Sign Up' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[2]/button/div")).click();
+        cd.findElement(By.cssSelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div.box-container > div > form > div:nth-child(2) > button > div")).click();
 
         // Wait until Sign Up download.
         Thread.sleep(5000);

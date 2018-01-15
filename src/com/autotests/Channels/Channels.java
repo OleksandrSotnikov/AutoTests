@@ -19,6 +19,7 @@ Title: Check price for packages (fon unregistered user).
 package com.autotests.Channels;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -35,7 +36,7 @@ public class Channels {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
-        ChromeDriver cd = new ChromeDriver();
+        WebDriver cd = new ChromeDriver();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
