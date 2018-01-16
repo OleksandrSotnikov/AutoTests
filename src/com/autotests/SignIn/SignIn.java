@@ -40,44 +40,44 @@ public class SignIn {
         // Wait until webside with spoofing download.
         Thread.sleep(5000);
 
-        // Input Value USA
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[] {"USA"});
+        WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
+        SpoofCountry.sendKeys(new String[] {"USA"});
 
-        // Input Current Postal Code
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input")).sendKeys(new String[] {"94124"} );
+        WebElement SpoofZip = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input"));
+        SpoofZip.sendKeys(new String[] {"94124"} );
 
-        // Click on 'Spoof' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div")).click();
+        WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
+        SpoofButton.click();
 
         // Wait until QA download.
         Thread.sleep(5000);
 
-        // Clcik 'Sign In' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span")).click();
+        WebElement SignIn = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span"));
+        SignIn.click();
 
-        // email value:
+        // Store email value.
         String testEmail = "test@dummy.com";
 
         // Array for sending values
         String[] myArray = {testEmail};
 
-        // Input Email.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input")).sendKeys(myArray);
+        WebElement SignInEmail = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input"));
+        SignInEmail.sendKeys(myArray);
 
-        // Input Password.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input")).sendKeys(new String[] {"test1234"});
+        WebElement SignInPassword = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input"));
+        SignInPassword.sendKeys(new String[] {"test1234"});
 
-        // Click on Sign In button.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span")).click();
+        WebElement SignInButton = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span"));
+        SignInButton.click();
 
         // Wait
         Thread.sleep(5000);
 
-        // Click on menu button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]")).click();
+        WebElement MenuButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]"));
+        MenuButton.click();
 
-        // Click My Account.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span")).click();
+        WebElement MyAccountButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span"));
+        MyAccountButton.click();
 
         // Wait
         Thread.sleep(5000);
@@ -97,8 +97,6 @@ public class SignIn {
         } else {
             System.out.println("Emails are different");
             // emails are different
-
-
         }
         cd.close();
     }

@@ -44,20 +44,21 @@ public class Channels {
         // Wait until webside with spoofing download.
         Thread.sleep(2000);
 
-        // Input value USA.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[]{"USA"});
+        WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
+        SpoofCountry.sendKeys(new String[]{"USA"});
 
-        // Input ZipCode.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input")).sendKeys(new String[]{"94124"});
 
-        // Click on Spoof.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div")).click();
+        WebElement SpoofZip = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input"));
+        SpoofZip.sendKeys(new String[]{"94124"});
+
+        WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
+        SpoofButton.click();
 
         // Wait until download.
         Thread.sleep(5000);
 
-        // Click on 'Channels' tab.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span")).click();
+        WebElement ChannelsTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span"));
+        ChannelsTab.click();
 
         // Wait until download.
         Thread.sleep(5000);

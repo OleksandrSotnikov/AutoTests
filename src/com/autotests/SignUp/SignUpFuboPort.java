@@ -17,120 +17,126 @@ public class SignUpFuboPort {
         // Wait.
         Thread.sleep(5000);
 
-        // Input value USA.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[]{"USA"});
+        WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
+        SpoofCountry.sendKeys(new String[]{"USA"});
 
-        // Input ZipCode.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input")).sendKeys(new String[]{"94124"});
+        WebElement SpoofZip = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input"));
+        SpoofZip.sendKeys(new String[]{"94124"});
 
-        // Click on Spoof.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div")).click();
+        WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
+        SpoofButton.click();
 
         // Wait until QA MLP download.
         Thread.sleep(5000);
 
         // Clkic channels.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span")).click();
+        WebElement ChannelsTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span"));
+        ChannelsTab.click();
 
         // Wait.
         Thread.sleep(5000);
 
         // Click 'GetStarted' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[3]/a/span")).click();
+        WebElement GetStartedButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[3]/a/span"));
+        GetStartedButton.click();
 
         // Wait until Sign Up download.
         Thread.sleep(5000);
 
-        // Input email.
+        // Generate email for SignUp.
         String prefix = "autosignup";
         String suffix = "@dummy.com";
 
         String testEmail = prefix + Math.round(Math.random() * 1000000) + suffix;
 
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[1]/div/input")).sendKeys(new String[] {testEmail});
+        WebElement SignUpEmail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[1]/div/input"));
+        SignUpEmail.sendKeys(new String[] {testEmail});
 
-        // Click 'SignUp' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[2]/button/div/span")).click();
+        WebElement SignUpButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[2]/button/div/span"));
+        SignUpButton.click();
 
         // Wait.
         Thread.sleep(5000);
 
-        // Input First and Last Name
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[1]/input")).sendKeys(new String[] {"John"});
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[2]/input")).sendKeys(new String[] {"Wick"});
+        WebElement SignUpFirstName = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[1]/input"));
+        WebElement SignUpLastName = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[2]/input"));
+        SignUpFirstName.sendKeys(new String[] {"John"});
+        SignUpLastName.sendKeys(new String[] {"Wick"});
 
-        // Input Email:
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[3]/div/input")).sendKeys(new String[] {"test1234"});
+        WebElement SignUpPassword = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[3]/div/input"));
+        SignUpPassword.sendKeys(new String[] {"test1234"});
 
-        // Click 'Select Package' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[4]/button/div/span")).click();
+        WebElement SelectPackageButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[4]/button/div/span"));
+        SelectPackageButton.click();
 
         // Wait.
         Thread.sleep(15000);
 
         // Choose Package (fubo Português)
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/div[3]/div[1]")).click();
+        WebElement ChoosePackage = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/div[3]/div[1]"));
+        ChoosePackage.click();
 
         // Get Package title.
         String chosenpackage = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/div[3]/div[1]/span/span[2]")).getText();
 
-        // Click 'Go To Next Step' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span")).click();
+        WebElement GoToNextStepButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
+        GoToNextStepButton.click();
 
         // Wait.
         Thread.sleep(5000);
 
-        // Click 'Continue To Last Step' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span")).click();
+        WebElement ContinueButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
+        ContinueButton.click();
 
         // Wait.
         Thread.sleep(5000);
 
-        // Input Card holder First and Last Name.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[1]/div/input")).sendKeys(new String[]{"First"});
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[2]/div/input")).sendKeys(new String[]{"Last"});
+        WebElement CardHolderFirst = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[1]/div/input"));
+        WebElement CardHolderLast = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[2]/div/input"));
+        CardHolderFirst.sendKeys(new String[]{"First"});
+        CardHolderLast.sendKeys(new String[]{"Last"});
 
         cd.switchTo().frame(0);     // entering the iframe
 
-        // Input Card Number
-        cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]")).sendKeys(new String[]{"5555 5555 5555 4444"});
+        WebElement CardNumber = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        CardNumber.sendKeys(new String[]{"5555 5555 5555 4444"});
 
         cd.switchTo().defaultContent();
         cd.switchTo().frame(1);     // entering the iframe
 
-        // Input Security Code.
-        cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]")).sendKeys(new String[]{"019"});
+        WebElement CVV = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        CVV.sendKeys(new String[]{"019"});
 
 
         cd.switchTo().defaultContent();
         cd.switchTo().frame(2);     // entering the iframe
 
-        // Input Month
-        cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]")).sendKeys(new String[]{"9"});
+        WebElement ExpMonth = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        ExpMonth.sendKeys(new String[]{"9"});
 
         cd.switchTo().defaultContent();
         cd.switchTo().frame(3);     // entering the iframe
 
-        // Input Year
-        cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]")).sendKeys(new String[]{"19"});
 
+        WebElement ExpYear = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        ExpYear.sendKeys(new String[]{"19"});
 
         cd.switchTo().defaultContent();     // exiting the iframe
 
-        // Input Zip Code
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[7]/div/input")).sendKeys(new String[]{"94124"});
+        WebElement CardZip = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[7]/div/input"));
+        CardZip.sendKeys(new String[]{"94124"});
 
-        // Click 'Start Watching' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span")).click();
+        WebElement StartWatchingButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
+        StartWatchingButton.click();
 
         // Wait.
         Thread.sleep(5000);
 
-        // Click on menu button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]")).click();
+        WebElement MenuButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]"));
+        MenuButton.click();
 
-        // Click My Account.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span")).click();
+        WebElement MyAccountButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span"));
+        MyAccountButton.click();
 
         // Wait
         Thread.sleep(5000);
@@ -138,8 +144,8 @@ public class SignUpFuboPort {
         // Get information from 'My Profile' about user email.
         String useremail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
 
-        // Click 'Subscription' tab.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[1]/p[2]/span")).click();
+        WebElement SubscriptionTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[1]/p[2]/span"));
+        SubscriptionTab.click();
 
         // Wait
         Thread.sleep(2000);
@@ -158,14 +164,13 @@ public class SignUpFuboPort {
         if (chosenpackage.equals(userpackage)) {
             // packages are the same
             System.out.println("Packages are equals");
-            cd.close();
-        } else {
+            } else {
             System.out.println("Packages are different");
             // packages are different
 
 
         }
-
+        cd.close();
     }
 }
 

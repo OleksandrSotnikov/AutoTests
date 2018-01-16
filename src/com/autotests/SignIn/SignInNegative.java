@@ -41,29 +41,30 @@ public class SignInNegative {
         // Wait until webside with spoofing download.
         Thread.sleep(5000);
 
-        // Input Value USA
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input")).sendKeys(new String[]{"USA"});
+        WebElement SoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
+        SoofCountry.sendKeys(new String[]{"USA"});
 
-        // Input Current Postal Code
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input")).sendKeys(new String[]{"94124"});
+        WebElement SpoofZip = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[2]/input"));
+        SpoofZip.sendKeys(new String[]{"94124"});
 
-        // Click on 'Spoof' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div")).click();
+        WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
+        SpoofButton.click();
+
 
         // Wait until QA download.
         Thread.sleep(5000);
 
-        // Clcik 'Sign In' button.
-        cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span")).click();
+        WebElement SignIn = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span"));
+        SignIn.click();
 
-        // Input Email.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input")).sendKeys(new String[] {"test@dummy.com"});
+        WebElement SignInEmail = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input"));
+        SignInEmail.sendKeys(new String[] {"test@dummy.com"});
 
-        // Input Password.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input")).sendKeys(new String[]{"12345678"});
+        WebElement SignInPassword = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input"));
+        SignInPassword.sendKeys(new String[]{"12345678"});
 
-        // Click on Sign In button.
-        cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span")).click();
+        WebElement SignInButton = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span"));
+        SignInButton.click();
 
         // Wait.
         Thread.sleep(5000);
@@ -75,9 +76,10 @@ public class SignInNegative {
 
         // Compare error.
         if (errormessage.equals(correcterror)) {
-            cd.close();
+            System.out.println("The error message is correct.");
         } else {
-            System.out.println("The error message is incorrect.");
+            System.out.println("The error message is INCORRECT.");
         }
+        cd.close();
     }
 }
