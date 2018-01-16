@@ -38,6 +38,9 @@ public class Channels {
         // Open browser.
         WebDriver cd = new ChromeDriver();
 
+        // Expand the window.
+        cd.manage().window().maximize();
+
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
 

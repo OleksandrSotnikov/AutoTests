@@ -28,11 +28,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignIn {
     public static void main(String[] args) throws InterruptedException {
+
         // for Chrome.
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
         WebDriver cd = new ChromeDriver();
+
+        // Expand the window.
+        cd.manage().window().maximize();
 
         // Open Spoofing
         cd.get("https://qa.fubo.tv/sandbox/geolocation");

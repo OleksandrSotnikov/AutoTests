@@ -35,6 +35,9 @@ public class SignInNegativeLog {
         // Open browser.
         WebDriver cd = new ChromeDriver();
 
+        // Expand the window.
+        cd.manage().window().maximize();
+
         // Open Spoofing
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
 
