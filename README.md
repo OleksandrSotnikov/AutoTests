@@ -24,6 +24,9 @@ SignIn - Button for starting SignIn Flow.
 SignInEmail - Email Field.
 SignInPassword - Password Field.
 SignInButton - Button for Confirm Signing In.
+FacebookEmail - Facebook Email Field.
+FacebookPaswword - Facebook Password Field.
+FacebookSignInButton - Button for Confirmation Sign In via Facebook.
 GetStartedButton - Button for Start Sign Up Flow From Channels Page..
 SignUp - Button for Start Sign Up Flow From Home Page.
 SignUpButton - Button for Stating SignUpFlow.
@@ -43,6 +46,7 @@ ExpMonth - ExpMonth For Credit Card Field.
 ExpYear - ExpYear For Credit Card Field.
 CardZip - Zip Code For Credit Card Field.
 StartWatchingButton - Start Watching Button.
+
 
 Logged In User:
 MenuButton - Logged In User Menu Button.
