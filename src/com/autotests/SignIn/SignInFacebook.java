@@ -11,9 +11,12 @@ public class SignInFacebook {
         // for Chrome.
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
-        // Store sign in email.
+        // Store sign in email and password.
         String testEmail = "alex.qa.org@gmail.com";
+        String password = "test123456789";
         String[] myArray = {testEmail};
+        String[] myArray2 = {password};
+
 
         // Open browser.
         WebDriver cd = new ChromeDriver();
@@ -53,7 +56,7 @@ public class SignInFacebook {
                 WebElement FacebookEmail = cd.findElement(By.id("email"));
                 FacebookEmail.sendKeys(myArray);
                 WebElement FacebookPaswword = cd.findElement(By.id("pass"));
-                FacebookPaswword.sendKeys(new String[]{"test123456789"});
+                FacebookPaswword.sendKeys(myArray2);
                 WebElement FacebookSignInButton = cd.findElement(By.id("loginbutton"));
                 FacebookSignInButton.click();
 
