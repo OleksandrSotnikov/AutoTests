@@ -26,23 +26,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
 public class SignInNegative {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
         // for Chrome.
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
         WebDriver cd = new ChromeDriver();
 
+        // Set timeout.
+        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
         // Expand the window.
         cd.manage().window().maximize();
 
         // Open Spoofing
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
-
-        // Wait until webside with spoofing download.
-        Thread.sleep(5000);
 
         WebElement SoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
         SoofCountry.sendKeys(new String[]{"USA"});
@@ -52,10 +53,6 @@ public class SignInNegative {
 
         WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
         SpoofButton.click();
-
-
-        // Wait until QA download.
-        Thread.sleep(5000);
 
         WebElement SignIn = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span"));
         SignIn.click();
@@ -68,9 +65,6 @@ public class SignInNegative {
 
         WebElement SignInButton = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span"));
         SignInButton.click();
-
-        // Wait.
-        Thread.sleep(5000);
 
         // Get Error message
         String errormessage = cd.findElement(By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[3]")).getText();

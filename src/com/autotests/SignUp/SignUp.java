@@ -4,22 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
 public class SignUp {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
         WebDriver cd = new ChromeDriver();
+
+        // Set timeout.
+        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         // Expand the window.
         cd.manage().window().maximize();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
-
-        // Wait.
-        Thread.sleep(5000);
 
         WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
         SpoofCountry.sendKeys(new String[]{"USA"});
@@ -30,18 +31,10 @@ public class SignUp {
         WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
         SpoofButton.click();
 
-        // Wait until QA MLP download.
-        Thread.sleep(5000);
-
-
         WebElement SignUp = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/div/a/span"));
         SignUp.click();
 
-        // Wait until Sign Up download.
-        Thread.sleep(5000);
-
-        // Input email.
-
+        // Generate email for SignUp.
         String prefix = "autosignup";
         String suffix = "@dummy.com";
 
@@ -52,9 +45,6 @@ public class SignUp {
 
         WebElement SignUpButton = cd.findElement(By.cssSelector("#root > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div.box-container > div > form > div:nth-child(2) > button > div"));
         SignUpButton.click();
-
-        // Wait until Sign Up download.
-        Thread.sleep(5000);
 
         WebElement SignUpFirstName = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[1]/input"));
         SignUpFirstName.sendKeys(new String[]{"John"});
@@ -68,14 +58,8 @@ public class SignUp {
         WebElement SelectAddons = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[4]/button/div/span"));
         SelectAddons.click();
 
-        // Wait until page download.
-        Thread.sleep(10000);
-
         WebElement ContinueButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
         ContinueButton.click();
-
-        // Wait until page download.
-        Thread.sleep(5000);
 
         WebElement CardHolderFirst = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[1]/div/input"));
         WebElement CardHolderLast = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[2]/div/input"));
@@ -115,17 +99,11 @@ public class SignUp {
         WebElement StartWatchingButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
         StartWatchingButton.click();
 
-        // Wait
-        Thread.sleep(5000);
-
         WebElement MenuButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]"));
         MenuButton.click();
 
         WebElement MyAccountButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span"));
         MyAccountButton.click();
-
-        // Wait
-        Thread.sleep(5000);
 
         // Get information from 'My Profile' about user email.
         String useremail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
@@ -140,7 +118,6 @@ public class SignUp {
             } else {
             System.out.println("Emails are different");
             // emails are different
-
 
         }
         cd.close();

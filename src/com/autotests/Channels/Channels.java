@@ -22,10 +22,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
 
 public class Channels {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
 
         //Prices values:
         String fuboPremiercorrect = "$39.99/mo";
@@ -38,14 +39,14 @@ public class Channels {
         // Open browser.
         WebDriver cd = new ChromeDriver();
 
+        // Set timeout.
+        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
         // Expand the window.
         cd.manage().window().maximize();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
-
-        // Wait until webside with spoofing download.
-        Thread.sleep(2000);
 
         WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
         SpoofCountry.sendKeys(new String[]{"USA"});
@@ -57,14 +58,8 @@ public class Channels {
         WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
         SpoofButton.click();
 
-        // Wait until download.
-        Thread.sleep(5000);
-
         WebElement ChannelsTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span"));
         ChannelsTab.click();
-
-        // Wait until download.
-        Thread.sleep(5000);
 
         // Get price from different packeges.
         String fuboPremier = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div[1]/div[1]/span[2]/span[2]/span/span/span")).getText();

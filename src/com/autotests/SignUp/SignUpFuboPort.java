@@ -4,22 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
 public class SignUpFuboPort {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
         WebDriver cd = new ChromeDriver();
+
+        // Set timeout.
+        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         // Expand the window.
         cd.manage().window().maximize();
 
         // Go to Fubo QA.
         cd.get("https://qa.fubo.tv/sandbox/geolocation");
-
-        // Wait.
-        Thread.sleep(5000);
 
         WebElement SpoofCountry = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[2]/div[1]/input"));
         SpoofCountry.sendKeys(new String[]{"USA"});
@@ -30,22 +31,13 @@ public class SignUpFuboPort {
         WebElement SpoofButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/form/div/div[3]/button[1]/div"));
         SpoofButton.click();
 
-        // Wait until QA MLP download.
-        Thread.sleep(5000);
-
-        // Clkic channels.
+        // Click channels.
         WebElement ChannelsTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[2]/div/a/span"));
         ChannelsTab.click();
-
-        // Wait.
-        Thread.sleep(5000);
 
         // Click 'GetStarted' button.
         WebElement GetStartedButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[2]/div/div[2]/div[1]/div[1]/div[3]/a/span"));
         GetStartedButton.click();
-
-        // Wait until Sign Up download.
-        Thread.sleep(5000);
 
         // Generate email for SignUp.
         String prefix = "autosignup";
@@ -59,9 +51,6 @@ public class SignUpFuboPort {
         WebElement SignUpButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div/div[2]/div/form/div[2]/button/div/span"));
         SignUpButton.click();
 
-        // Wait.
-        Thread.sleep(5000);
-
         WebElement SignUpFirstName = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[1]/input"));
         WebElement SignUpLastName = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[2]/input"));
         SignUpFirstName.sendKeys(new String[] {"John"});
@@ -73,9 +62,6 @@ public class SignUpFuboPort {
         WebElement SelectPackageButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div/form/div[4]/button/div/span"));
         SelectPackageButton.click();
 
-        // Wait.
-        Thread.sleep(15000);
-
         // Choose Package (fubo Português)
         WebElement ChoosePackage = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/div[3]/div[1]"));
         ChoosePackage.click();
@@ -86,14 +72,8 @@ public class SignUpFuboPort {
         WebElement GoToNextStepButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
         GoToNextStepButton.click();
 
-        // Wait.
-        Thread.sleep(5000);
-
         WebElement ContinueButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
         ContinueButton.click();
-
-        // Wait.
-        Thread.sleep(5000);
 
         WebElement CardHolderFirst = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[1]/div/input"));
         WebElement CardHolderLast = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[1]/form/div/div[2]/div/input"));
@@ -133,26 +113,17 @@ public class SignUpFuboPort {
         WebElement StartWatchingButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[3]/div/div[2]/div[1]/button/div/span"));
         StartWatchingButton.click();
 
-        // Wait.
-        Thread.sleep(5000);
-
         WebElement MenuButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]"));
         MenuButton.click();
 
         WebElement MyAccountButton = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span"));
         MyAccountButton.click();
 
-        // Wait
-        Thread.sleep(5000);
-
         // Get information from 'My Profile' about user email.
         String useremail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
 
         WebElement SubscriptionTab = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[1]/p[2]/span"));
         SubscriptionTab.click();
-
-        // Wait
-        Thread.sleep(2000);
 
         // Get information from 'My Subscription'
         String userpackage = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[1]/div[2]/span")).getText();
@@ -171,7 +142,6 @@ public class SignUpFuboPort {
             } else {
             System.out.println("Packages are different");
             // packages are different
-
 
         }
         cd.close();
