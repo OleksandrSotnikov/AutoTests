@@ -1,12 +1,11 @@
-package com.autotest_v2;
+package com.autotest_v2.SignIn;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
-import static com.autotest_v2.Spoof.spoof;
+import static com.autotest_v2.Spoofing.Spoof.spoof;
 
 public class SignIn {
     public static void main(String[] args) {
@@ -19,7 +18,7 @@ public class SignIn {
         // Store Variables.
         By signIn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span");
         By signInEmailInput = By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[1]/input");
-        By signInPasswordШnput = By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input");
+        By signInPasswordInput = By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/div[2]/div/input");
         By signInButton = By.xpath("/html/body/div[2]/div/div/div/div[1]/div[2]/div/div/form/div/button/div/span");
         By menuButton = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[1]/div/span[2]");
         By myAccountButton = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div[2]/div/div[2]/div/a[1]/span");
@@ -45,7 +44,7 @@ public class SignIn {
 
         cd.findElement(signInEmailInput).sendKeys(myArray);
 
-        cd.findElement(signInPasswordШnput).sendKeys(myArray2);
+        cd.findElement(signInPasswordInput).sendKeys(myArray2);
 
         cd.findElement(signInButton).click();
 

@@ -1,4 +1,4 @@
-package com.autotest_v2;
+package com.autotest_v2.Spoofing;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
