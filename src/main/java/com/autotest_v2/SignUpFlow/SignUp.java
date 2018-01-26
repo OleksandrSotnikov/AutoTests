@@ -1,4 +1,4 @@
-package com.autotest_v2;
+package com.autotest_v2.SignUpFlow;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
