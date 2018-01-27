@@ -15,6 +15,12 @@ public class Spoof {
         cd.findElement(SpoofZipInput).sendKeys(postalCode);
 
         cd.findElement(SpoofButton).click();
+        try {
+            Thread.sleep(500);
+        }
+        catch (Exception e) {
+
+        }
     }
 
 /*    public static void main(String[] args) {

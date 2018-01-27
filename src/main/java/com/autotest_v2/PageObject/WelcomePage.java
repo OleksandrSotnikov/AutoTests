@@ -10,17 +10,17 @@ import org.openqa.selenium.support.PageFactory;
 
 public class WelcomePage {
 
-    @FindBy(xpath = "//*[@id=\"fuboTV-logo\"]/path")
-    public WebElement fuboButton;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[1]")
+    private WebElement fuboButton;
 
     @FindBy(xpath = "(//a[@href=\"/welcome/channels\"]/span[.=\"Channels\"])[2]")
-    public WebElement channelsButton;
+    private WebElement channelsButton;
 
-   public WelcomePage(WebDriver driver){
-       PageFactory.initElements(driver,this);
-   }
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/div/a/span/span/span")
+    private WebElement trialButton;
 
-    public boolean isButtonsVisible(){
+
+    public boolean isButtonsVisible() {
        return fuboButton.isDisplayed() && channelsButton.isDisplayed();
     }
 

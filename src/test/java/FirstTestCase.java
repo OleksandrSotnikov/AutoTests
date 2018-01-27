@@ -2,6 +2,7 @@ import com.autotest_v2.PageObject.WelcomePage;
 import com.autotest_v2.Spoofing.Spoof;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -25,11 +26,10 @@ public class FirstTestCase {
 
         Spoof.spoof(driver, "USA", "94124");
 
-        WelcomePage welcomePage = new WelcomePage(driver);
+        WelcomePage welcomePage = PageFactory.initElements(driver, WelcomePage.class);
 
         Assert.assertEquals(welcomePage.isButtonsVisible(), true);
 
         driver.close();
-
     }
 }
