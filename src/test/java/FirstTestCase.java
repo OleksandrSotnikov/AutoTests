@@ -22,23 +22,23 @@ public class FirstTestCase {
         // Expand the window.
         driver.manage().window().maximize();
 
-        By SpoofCountryInput = By.xpath("(//input)[1]");
-        By SpoofZipInput = By.xpath("(//input)[2]");
-        By SpoofButton = By.xpath("(//button)[@type=\"submit\"]");
+        By spoofCountryInput = By.xpath("(//input)[1]");
+        By spoofZipInput = By.xpath("(//input)[2]");
+        By spoofButton = By.xpath("(//button)[@type=\"submit\"]");
 
         driver.get("https://qa.fubo.tv/sandbox/geolocation");
 
-        driver.findElement(SpoofCountryInput).sendKeys("USA");
+        driver.findElement(spoofCountryInput).sendKeys("USA");
 
-        driver.findElement(SpoofZipInput).sendKeys("94124");
+        driver.findElement(spoofZipInput).sendKeys("94124");
 
-        driver.findElement(SpoofButton).click();
+        driver.findElement(spoofButton).click();
 
-        Thread.sleep(500);
+        Thread.sleep(3000);
 
         WelcomePage welcomePage = PageFactory.initElements(driver, WelcomePage.class);
 
-        Assert.assertEquals(welcomePage.isButtonsVisible(), true);
+        Assert.assertEquals(welcomePage.areButtonsVisible(), true);
 
         driver.close();
     }
