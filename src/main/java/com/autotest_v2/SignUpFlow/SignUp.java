@@ -13,7 +13,7 @@ public class SignUp {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
-        WebDriver cd = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
         // Store Variables.
         By startSignUpButton = By.xpath("//div/a[@href=\"/signup\"]");
@@ -33,20 +33,18 @@ public class SignUp {
         By userEmailField = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span");
 
         // Set timeout.
-        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         // Expand the window.
-        cd.manage().window().maximize();
+        driver.manage().window().maximize();
 
         // Open Spoofing Page.
-        cd.get("https://qa.fubo.tv/sandbox/geolocation");
+        driver.get("https://qa.fubo.tv/sandbox/geolocation");
 
-        spoof(cd, "USA", "94124");
+        spoof(driver, "USA", "94124");
 
         // Generate email for SignUp.
-        String prefix = "autosignup";
-        String suffix = "@dummy.com";
-        String testEmail = prefix + Math.round(Math.random() * 1000000) + suffix;
+        String testEmail = "autosignuptest" + System.currentTimeMillis() + "@dummy.com";
 
         // Store password, name, Credit Card data.
         String password = "test1234";
@@ -59,65 +57,65 @@ public class SignUp {
         String billingZipCode = "94124";
 
 
-        cd.findElement(startSignUpButton).click();
+        driver.findElement(startSignUpButton).click();
 
-        cd.findElement(signUpEmailInput).sendKeys(testEmail);
+        driver.findElement(signUpEmailInput).sendKeys(testEmail);
 
-        cd.findElement(signUpButton).click();
+        driver.findElement(signUpButton).click();
 
         Thread.sleep(3000);
 
-        cd.findElement(signUpFirstNameInput).sendKeys(firstName);
+        driver.findElement(signUpFirstNameInput).sendKeys(firstName);
 
-        cd.findElement(signUpLastNameInput).sendKeys(lastName);
+        driver.findElement(signUpLastNameInput).sendKeys(lastName);
 
-        cd.findElement(signUpPasswordInput).sendKeys(password);
+        driver.findElement(signUpPasswordInput).sendKeys(password);
 
-        cd.findElement(selectPackageButton).click();
+        driver.findElement(selectPackageButton).click();
 
-        cd.findElement(continueToLastStepButton).click();
+        driver.findElement(continueToLastStepButton).click();
 
-        cd.findElement(cardHolderFirstNameInput).sendKeys(firstName);
+        driver.findElement(cardHolderFirstNameInput).sendKeys(firstName);
 
-        cd.findElement(cardHolderLastNameInput).sendKeys(lastName);
+        driver.findElement(cardHolderLastNameInput).sendKeys(lastName);
 
-        cd.switchTo().frame(0);     // entering the iframe
+        driver.switchTo().frame(0);     // entering the iframe
 
         // Input Card Number
-        WebElement cardNumberInput = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        WebElement cardNumberInput = driver.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
         cardNumberInput.sendKeys(cardNumber);
 
-        cd.switchTo().defaultContent();
-        cd.switchTo().frame(1);     // entering the iframe
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(1);     // entering the iframe
 
-        WebElement cvv = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        WebElement cvv = driver.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
         cvv.sendKeys(cardCVV);
 
-        cd.switchTo().defaultContent();
-        cd.switchTo().frame(2);     // entering the iframe
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(2);     // entering the iframe
 
-        WebElement expMonthInput = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        WebElement expMonthInput = driver.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
         expMonthInput.sendKeys(expMonth);
 
-        cd.switchTo().defaultContent();
-        cd.switchTo().frame(3);     // entering the iframe
+        driver.switchTo().defaultContent();
+        driver.switchTo().frame(3);     // entering the iframe
 
 
-        WebElement expYearInput = cd.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
+        WebElement expYearInput = driver.findElement(By.xpath("//*[@id=\"recurly-hosted-field-input\"]"));
         expYearInput.sendKeys(expYear);
 
-        cd.switchTo().defaultContent();     // exiting the iframe
+        driver.switchTo().defaultContent();     // exiting the iframe
 
-        cd.findElement(cardZip).sendKeys(billingZipCode);
+        driver.findElement(cardZip).sendKeys(billingZipCode);
 
-        cd.findElement(startWatchingButton).click();
+        driver.findElement(startWatchingButton).click();
 
-        cd.findElement(menuButton).click();
+        driver.findElement(menuButton).click();
 
-        cd.findElement(myAccountButton).click();
+        driver.findElement(myAccountButton).click();
 
         // Get information from 'My Profile' about user email.
-        String useremail = cd.findElement(userEmailField).getText();
+        String useremail = driver.findElement(userEmailField).getText();
 
         // Display user email.
         System.out.println("User email is: " + useremail);
@@ -131,7 +129,7 @@ public class SignUp {
             // emails are different
 
         }
-        cd.close();
+        driver.close();
     }
 
 }

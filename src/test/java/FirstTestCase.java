@@ -1,5 +1,5 @@
 import com.autotest_v2.PageObject.WelcomePage;
-import com.autotest_v2.Spoofing.Spoof;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FirstTestCase {
     @Test
-    public void welcomePage(){
+    public void welcomePage() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
@@ -22,9 +22,19 @@ public class FirstTestCase {
         // Expand the window.
         driver.manage().window().maximize();
 
+        By SpoofCountryInput = By.xpath("(//input)[1]");
+        By SpoofZipInput = By.xpath("(//input)[2]");
+        By SpoofButton = By.xpath("(//button)[@type=\"submit\"]");
+
         driver.get("https://qa.fubo.tv/sandbox/geolocation");
 
-        Spoof.spoof(driver, "USA", "94124");
+        driver.findElement(SpoofCountryInput).sendKeys("USA");
+
+        driver.findElement(SpoofZipInput).sendKeys("94124");
+
+        driver.findElement(SpoofButton).click();
+
+        Thread.sleep(500);
 
         WelcomePage welcomePage = PageFactory.initElements(driver, WelcomePage.class);
 

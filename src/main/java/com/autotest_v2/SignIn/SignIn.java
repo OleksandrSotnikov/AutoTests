@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 import static com.autotest_v2.Spoofing.Spoof.spoof;
 
 public class SignIn {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         // for Chrome.
         System.setProperty("webdriver.chrome.driver", "D:/ProgramData/SeleniumStuff/chromedriver.exe");
 
         // Open browser.
-        WebDriver cd = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
 
         // Store Variables.
         By signIn = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[1]/div/div/div/div/div[2]/div[5]/div/button/div/span");
@@ -30,30 +30,30 @@ public class SignIn {
         String[] myArray2 = {password};
 
         // Set timeout.
-        cd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
         // Expand the window.
-        cd.manage().window().maximize();
+        driver.manage().window().maximize();
 
         // Open Spoofing
-        cd.get("https://qa.fubo.tv/sandbox/geolocation");
+        driver.get("https://qa.fubo.tv/sandbox/geolocation");
 
-        spoof(cd, "USA", "94124");
+        spoof(driver, "USA", "94124");
 
-        cd.findElement(signIn).click();
+        driver.findElement(signIn).click();
 
-        cd.findElement(signInEmailInput).sendKeys(myArray);
+        driver.findElement(signInEmailInput).sendKeys(myArray);
 
-        cd.findElement(signInPasswordInput).sendKeys(myArray2);
+        driver.findElement(signInPasswordInput).sendKeys(myArray2);
 
-        cd.findElement(signInButton).click();
+        driver.findElement(signInButton).click();
 
-        cd.findElement(menuButton).click();
+        driver.findElement(menuButton).click();
 
-        cd.findElement(myAccountButton).click();
+        driver.findElement(myAccountButton).click();
 
         // Get information from 'My Profile' about user email.
-        String useremail = cd.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
+        String useremail = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[2]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[2]/span")).getText();
 
         // Display user email.
         System.out.println("User email is: " + useremail);
@@ -67,7 +67,7 @@ public class SignIn {
             System.out.println("Emails are different");
             // emails are different
         }
-        cd.close();
+        driver.close();
 
     }
 }

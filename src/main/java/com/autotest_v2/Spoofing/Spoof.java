@@ -3,24 +3,22 @@ package com.autotest_v2.Spoofing;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 public class Spoof {
-    public static void spoof(WebDriver cd, String countryCode, String postalCode) {
+    public static void spoof(WebDriver driver, String countryCode, String postalCode)  {
 
-        By SpoofCountryInput = By.xpath("(//input)[1]");
-        By SpoofZipInput = By.xpath("(//input)[2]");
-        By SpoofButton = By.xpath("(//button)[@type=\"submit\"]");
+        By spoofCountryInput = By.xpath("(//input)[1]");
+        By spoofPostalCodeInput = By.xpath("(//input)[2]");
+        By spoofButton = By.xpath("(//button)[@type=\"submit\"]");
 
-        cd.findElement(SpoofCountryInput).sendKeys(countryCode);
+        driver.findElement(spoofCountryInput).sendKeys(countryCode);
 
-        cd.findElement(SpoofZipInput).sendKeys(postalCode);
+        driver.findElement(spoofPostalCodeInput).sendKeys(postalCode);
 
-        cd.findElement(SpoofButton).click();
-        try {
-            Thread.sleep(500);
-        }
-        catch (Exception e) {
+        driver.findElement(spoofButton).click();
 
-        }
+
+
     }
 
 /*    public static void main(String[] args) {
