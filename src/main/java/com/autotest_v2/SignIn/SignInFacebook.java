@@ -29,9 +29,6 @@ public class SignInFacebook {
         // Store sign in email and password.
         String testEmail = "alex.qa.org@gmail.com";
         String password = "test123456789";
-        //String[] myArray = {testEmail};
-        //String[] myArray2 = {password};
-
 
         // Set timeout.
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
