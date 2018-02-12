@@ -8,11 +8,11 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Input first digit (a) and press 'Enter':");
+        System.out.println("Input the first digit (a) and press 'Enter':");
         int a = readInt(scanner);
-        System.out.println("Input second digit (b) and press 'Enter':");
+        System.out.println("Input the second digit (b) and press 'Enter':");
         int b = readInt(scanner);
-        System.out.println("Inputed digits are: a = " + a + ", b = " + b);
+        System.out.println("Inputted digits are: a = " + a + ", b = " + b);
         int sum = a + b;
         System.out.println("a + b = " + sum);
         int sub = a - b;

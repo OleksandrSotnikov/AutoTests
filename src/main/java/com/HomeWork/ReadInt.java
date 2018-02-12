@@ -11,7 +11,7 @@ public class ReadInt {
             if(scanner.hasNextInt()){
                 return scanner.nextInt();
             } else {
-                System.out.println("You input was not a digit. Please input a digit: ");
+                System.out.println("Your input was not a digit. Please input a digit: ");
                 scanner.next();
             }
         }
