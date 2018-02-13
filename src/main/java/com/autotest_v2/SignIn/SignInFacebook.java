@@ -2,8 +2,10 @@ package com.autotest_v2.SignIn;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.concurrent.TimeUnit;
 
 import static com.autotest_v2.Spoofing.Spoof.spoof;
@@ -50,9 +52,12 @@ public class SignInFacebook {
         String winHandleBefore = driver.getWindowHandle();
 
         // Switch to new window opened
-        for (String winHandle:driver.getWindowHandles()) {
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
             if (driver.getTitle().contains("Log into Facebook")) {
+                WebDriverWait wait = new WebDriverWait(driver, 60);
+                // Wait until pop up will be ready to fill.
+                wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete' ? 'complete' : null"));
                 driver.findElement(facebookEmailInput).sendKeys(testEmail);
                 driver.findElement(facebookPasswordInput).sendKeys(password);
                 driver.findElement(facebookSignInButton).click();

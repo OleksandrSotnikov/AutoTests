@@ -23,7 +23,7 @@ public class SignUp {
         By signUpLastNameInput = By.xpath("(//input)[2]");
         By signUpPasswordInput = By.xpath("(//input)[3]");
         By selectPackageButton = By.xpath("(//button)[2]");
-        By continueToLastStepButton = By.xpath("(//button)[12]");
+        By continueToLastStepButton = By.xpath("(//button)[14]");
         By cardHolderFirstNameInput = By.xpath("(//input)[1]");
         By cardHolderLastNameInput = By.xpath("(//input)[2]");
         By cardZip = By.xpath("(//input)[3]");
