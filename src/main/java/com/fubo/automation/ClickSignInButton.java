@@ -13,7 +13,7 @@ public class ClickSignInButton {
         WebDriver driver = BrowserFactory.startBrowser("https://qa.fubo.tv/sandbox/geolocation");
         spoof(driver, "USA", "94124");
         WelcomePage welcomePage = new WelcomePage();
-        welcomePage.click_signIn();
+        welcomePage.clicksignInButton();
         driver.quit();
 
 

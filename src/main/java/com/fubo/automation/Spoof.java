@@ -20,9 +20,9 @@ public class Spoof {
 
         driver.findElement(spoofButton).click();
 
-        //WebDriverWait wait = new WebDriverWait(driver,60);
+        WebDriverWait wait = new WebDriverWait(driver,60);
 
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(channelsButton));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(channelsButton));
 
 
 

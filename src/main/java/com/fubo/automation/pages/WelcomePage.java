@@ -7,7 +7,7 @@ public class WelcomePage {
 
     @FindBy(xpath = "(//button)[2]")WebElement signInButton;
 
-public void click_signIn(){
+public void clicksignInButton(){
     signInButton.click();
 }
 
