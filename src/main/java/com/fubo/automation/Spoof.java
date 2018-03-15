@@ -22,7 +22,7 @@ public class Spoof {
 
         WebDriverWait wait = new WebDriverWait(driver,60);
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(channelsButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(channelsButton));
 
 
 
